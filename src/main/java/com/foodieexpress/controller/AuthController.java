@@ -1,15 +1,16 @@
 package com.foodieexpress.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/foodies")
-public class HomeController {
+public class AuthController {
 
-    @RequestMapping("/home")
-    public  String homePage()
+    @GetMapping("/login")
+    public String signupPage()
     {
-        return "home";
+        return "signup";
     }
 }

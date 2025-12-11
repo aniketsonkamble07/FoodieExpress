@@ -1,7 +1,7 @@
 package com.foodieexpress.enums;
 
 public enum AuthProvider {
-    LOCAL,
+   EMAIL,
     GOOGLE,
     FACEBOOK,
     GITHUB

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+<div class="bg-white shadow-lg rounded-2xl p-10 w-full max-w-md">
+
+    <h2 class="text-3xl font-bold text-center mb-6 text-gray-700">
+        Create Your Account
+    </h2>
+
+    <!-- Signup Form -->
+    <form method="post" action="/signup">
+
+        <div class="mb-4">
+            <label class="block mb-2 text-gray-600">Full Name</label>
+            <input type="text" name="name"
+                   class="w-full p-3 border rounded-lg focus:ring focus:ring-blue-300"
+                   placeholder="Enter your name" required />
+        </div>
+
+        <div class="mb-4">
+            <label class="block mb-2 text-gray-600">Email</label>
+            <input type="email" name="email"
+                   class="w-full p-3 border rounded-lg focus:ring focus:ring-blue-300"
+                   placeholder="Enter your email" required />
+        </div>
+
+        <div class="mb-6">
+            <label class="block mb-2 text-gray-600">Password</label>
+            <input type="password" name="password"
+                   class="w-full p-3 border rounded-lg focus:ring focus:ring-blue-300"
+                   placeholder="Create a password" required />
+        </div>
+
+        <button type="submit"
+                class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+            Sign Up
+        </button>
+    </form>
+
+    <!-- Divider -->
+    <div class="flex items-center my-6">
+        <div class="flex-grow border-t"></div>
+        <span class="mx-3 text-gray-500">OR</span>
+        <div class="flex-grow border-t"></div>
+    </div>
+
+    <!-- Google Signup -->
+    <a href="/oauth2/authorization/google"
+       class="w-full flex items-center justify-center gap-3
+           bg-red-500 text-white py-3 rounded-lg hover:bg-red-600 transition mb-3">
+        <img src="https://www.svgrepo.com/show/355037/google.svg" class="w-6" />
+        Continue with Google
+    </a>
+
+    <!-- GitHub Signup -->
+    <a href="/oauth2/authorization/github"
+       class="w-full flex items-center justify-center gap-3
+           bg-gray-800 text-white py-3 rounded-lg hover:bg-black transition">
+        <img src="https://www.svgrepo.com/show/512317/github-142.svg" class="w-6 invert" />
+        Continue with GitHub
+    </a>
+
+    <p class="text-center text-gray-600 mt-6">
+        Already have an account?
+        <a href="/login" class="text-blue-600 font-semibold">Login</a>
+    </p>
+</div>
+
+</body>
+</html>
