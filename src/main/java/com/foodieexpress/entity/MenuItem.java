@@ -1,5 +1,6 @@
 package com.foodieexpress.entity;
 
+import com.foodieexpress.enums.ItemStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,9 +28,9 @@ public class MenuItem {
     @Column(nullable = false)
     private Double price;
 
-    @Builder.Default
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Boolean available = true;
+    private ItemStatus itemStatus;
 
     @Column(length = 255)
     private String image;
