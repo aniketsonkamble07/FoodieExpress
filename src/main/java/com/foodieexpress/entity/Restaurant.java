@@ -1,5 +1,6 @@
 package com.foodieexpress.entity;
 
+import com.foodieexpress.enums.RestaurantStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -28,8 +29,7 @@ public class Restaurant {
 
     private Double rating;
 
-    private Boolean active = true;
-
+     private RestaurantStatus restaurantStatus;
     /* One restaurant can have many menu items */
     @OneToMany(
             mappedBy = "restaurant",

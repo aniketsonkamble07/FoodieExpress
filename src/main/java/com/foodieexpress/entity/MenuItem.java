@@ -27,12 +27,14 @@ public class MenuItem {
     @Column(nullable = false)
     private Double price;
 
+    @Builder.Default
     @Column(nullable = false)
-    @lombok.Builder.Default
     private Boolean available = true;
 
-    /* Many menu items belong to one restaurant */
+    @Column(length = 255)
+    private String image;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "restaurant_id", nullable = false)
-    private Restaurant restaurant;
+    @JoinColumn(name = "category_id", nullable = false)
+    private MenuCategory category;
 }
