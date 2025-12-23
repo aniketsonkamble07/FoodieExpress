@@ -9,8 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class RestaurantRegistrationResponseDTO {
-
-    private String message;
-    private String details;
+public class MenuCategoryRequestDTO {
+    private String name;
+    private String restaurant_name;
 }

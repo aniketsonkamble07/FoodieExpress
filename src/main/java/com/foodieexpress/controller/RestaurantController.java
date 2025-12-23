@@ -1,11 +1,13 @@
 package com.foodieexpress.controller;
 
+import com.foodieexpress.dto.ApiResponse;
 import com.foodieexpress.dto.RestaurantRegistrationRequestDTO;
-import com.foodieexpress.dto.RestaurantRegistrationResponseDTO;
 import com.foodieexpress.service.RestaurantService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/api/v1/restaurants")
@@ -18,16 +20,16 @@ public class RestaurantController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<RestaurantRegistrationResponseDTO> registerRestaurant(
-            @RequestBody @Valid RestaurantRegistrationRequestDTO dto) {
+    public ResponseEntity<ApiResponse<Void>> registerRestaurant(
+            @Valid @RequestBody RestaurantRegistrationRequestDTO dto) {
 
-        RestaurantRegistrationResponseDTO response =
-                restaurantService.registerRestaurant(dto);
+        restaurantService.registerRestaurant(dto);
 
-        if ("Success".equals(response.getMessage())) {
-            return ResponseEntity.status(201).body(response);
-        } else {
-            return ResponseEntity.badRequest().body(response);
-        }
+        return ResponseEntity.status(201)
+                .body(ApiResponse.<Void>builder()
+                        .success(true)
+                        .message("Restaurant registered successfully")
+                        .timestamp(LocalDateTime.now())
+                        .build());
     }
 }
