@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.lang.module.ModuleDescriptor;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "menu_items")
@@ -38,4 +39,5 @@ public class MenuItem {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
     private MenuCategory category;
+    private LocalDateTime registerTime;
 }
